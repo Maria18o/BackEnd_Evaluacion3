@@ -79,13 +79,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv(
-    "DJANGO_SECRET_KEY",
-    "django-insecure-development-only-change-this-secret",
-)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env_bool("DEBUG", default=True)
+# La clave secreta SIEMPRE viene de una variable de entorno (nunca escrita en el código)
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+
+# DEBUG queda apagado por defecto; solo se enciende si lo pides en el .env
+DEBUG = env_bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = env_list(
     "ALLOWED_HOSTS",
@@ -207,3 +206,12 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+#Seguridad para producción
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ("HHTP_X_FORWARDED_PROTO", "https")
+    SECURE_HSTS_SECONDS = 31536000
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
