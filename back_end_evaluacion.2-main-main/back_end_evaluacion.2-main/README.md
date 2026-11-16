@@ -4,11 +4,11 @@ Aplicación Django para registrar ventas, productos, clientes y detalles de vent
 
 ## URL pública
 
-- Aplicación: https://back-end-evaluacion-2-ydrr.vercel.app/ventas/
-- API REST: https://back-end-evaluacion-2-ydrr.vercel.app/api/
-- Obtener token JWT: https://back-end-evaluacion-2-ydrr.vercel.app/api/token/
-- Cliente web (consume la API): https://back-end-evaluacion-2-ydrr.vercel.app/cliente-api/
-- Django Admin: https://back-end-evaluacion-2-ydrr.vercel.app/admin/
+- Aplicación: https://back-end-evaluacion3.vercel.app/ventas/
+- API REST: https://back-end-evaluacion3.vercel.app/api/
+- Obtener token JWT: https://back-end-evaluacion3.vercel.app/api/token/
+- Cliente web (React): https://punto-norte-market.vercel.app/
+- Django Admin: https://back-end-evaluacion3.vercel.app/admin/
 
 ## Funciones del Caso 2
 
